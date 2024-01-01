@@ -15,9 +15,8 @@ const MobileNav = () => {
     <nav className="md:hidden">
       <Sheet>
         <SheetTrigger className="align-middle">
-          Open
           <Image
-            src="/"
+            src="./assets/icons/menu.svg"
             alt="menu"
             className="cursor-pointer"
             width={24}
