@@ -1,5 +1,4 @@
-import { Document } from "mongodb";
-import { Schema, model, models } from "mongoose";
+import { Document, Schema, model, models } from "mongoose";
 
 export interface ICategory extends Document {
     _id: string;
