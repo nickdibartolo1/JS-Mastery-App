@@ -1,21 +1,21 @@
 import mongoose from 'mongoose';
 
-const MONGODB_URI = process.env.MONGODB_URI
+const MONGODB_URI = process.env.MONGODB_URI;
 
-let cached = (global as any).mongoose || { conn: null, promise: null}; //if cached connection is not already mongoose cached connection then set it to empty object; "(global as any)" = ts trick
+let cached = (global as any).mongoose || { conn: null, promise: null };
 
 export const connectToDatabase = async () => {
-    if(cached.conn) return cached.conn; //if connection is good
+  if (cached.conn) return cached.conn;
 
-    if(!MONGODB_URI) throw new Error('MONGO DATABASE is missing URI');
+  if(!MONGODB_URI) throw new Error('MONGODB_URI is missing');
 
-    cached.promise = cached.promise || mongoose.connect(MONGODB_URI, { //either connect to existing cached connection OR create new connection
-        dbName: "evently",
-        bufferCommands: false
-    })
+  cached.promise = cached.promise || mongoose.connect(MONGODB_URI, {
+    dbName: 'evently',
+    bufferCommands: false,
+  })
 
-    cached.conn = await cached.promise;
+  cached.conn = await cached.promise;
 
-    return cached.conn
+  return cached.conn;
 }
 
