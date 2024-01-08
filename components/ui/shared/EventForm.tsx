@@ -19,7 +19,7 @@ import { eventformSchema } from "@/lib/validator";
 import * as z from "zod";
 import { eventDefaultValues } from "@/constants";
 import Dropdown from "./Dropdown";
-import FileUploader from "./FileUploader";
+import { FileUploader } from "./FileUploader";
 import { useState } from "react";
 
 type EventFormProps = {
