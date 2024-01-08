@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction } from "react";
 
-const FileUploader = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+type FileUpLoadProps = {
+  imageUrl: string;
+  onFieldChange: (value: string) => void;
+  setFiles: Dispatch<SetStateAction<File[]>>;
+};
 
-export default FileUploader
+const FileUploader = ({
+  imageUrl,
+  onFieldChange,
+  setFiles
+}: FileUpLoadProps) => {
+  return <div></div>;
+};
+
+export default FileUploader;

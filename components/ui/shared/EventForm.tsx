@@ -28,7 +28,7 @@ type EventFormProps = {
 };
 
 const EventForm = ({ userId, type }: EventFormProps) => {
-    const [files, setFiles] = useState<File[]>([])
+  const [files, setFiles] = useState<File[]>([]);
   const initialValues = eventDefaultValues;
 
   const form = useForm<z.infer<typeof eventformSchema>>({
@@ -54,7 +54,6 @@ const EventForm = ({ userId, type }: EventFormProps) => {
             name="title"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel>Username</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Event Title"
@@ -82,13 +81,13 @@ const EventForm = ({ userId, type }: EventFormProps) => {
             )}
           />
         </div>
-        <div className="flex fle-col gap-5 md:flex-row">
+
+        <div className="flex flex-col gap-5 md:flex-row">
           <FormField
             control={form.control}
             name="description"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel>Username</FormLabel>
                 <FormControl className="h-72">
                   <Textarea
                     placeholder="Event Title"
@@ -105,9 +104,12 @@ const EventForm = ({ userId, type }: EventFormProps) => {
             name="imageUrl"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel>Username</FormLabel>
                 <FormControl className="h-72">
-                  <FileUploader />
+                  <FileUploader
+                    onFieldChange={field.onChange}
+                    imageUrl={field.value}
+                    setFiles={setFiles}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
