@@ -20,7 +20,7 @@ export const createCategory = async ({
 };
 
 
-export const getALLCategory = async () => {
+export const getALLCategories = async () => {
   try {
     await connectToDatabase();
 
