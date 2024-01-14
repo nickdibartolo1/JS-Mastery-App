@@ -37,7 +37,7 @@ type EventFormProps = {
 const EventForm = ({ userId, type }: EventFormProps) => {
   const [files, setFiles] = useState<File[]>([]);
   const initialValues = eventDefaultValues;
-  const router = useRouter;
+  const router = useRouter();
 
   const { startUpload } = useUploadThing("imageUploader");
 

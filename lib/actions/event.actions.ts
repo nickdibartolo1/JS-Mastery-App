@@ -20,13 +20,18 @@ export const createEvent = async ({
       throw new Error("Organizer not found");
     }
 
+    console.log({
+      category: event.categoryId,
+      organizer: userId
+    });
+
     const newEvent = await Event.create({
       ...event,
       category: event.categoryId,
       organizer: userId
     });
 
-    return JSON.parse(JSON.stringify(newEvent))
+    return JSON.parse(JSON.stringify(newEvent));
   } catch (error) {
     handleError(error);
   }
