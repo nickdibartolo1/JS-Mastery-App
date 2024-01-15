@@ -3,6 +3,7 @@
 import { CreateEventParams } from "@/types";
 import { connectToDatabase } from "../database";
 import { handleError } from "../utils";
+
 import User from "../database/models/user.model";
 import Event from "../database/models/event.model";
 

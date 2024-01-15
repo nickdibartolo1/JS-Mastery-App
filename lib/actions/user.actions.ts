@@ -1,14 +1,14 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-
-import { connectToDatabase } from '@/lib/database'
-import Event from '@/lib/database/models/event.model'
-import User from '@/lib/database/models/user.model'
-import Order from '@/lib/database/models/category.model'
-import { handleError } from '@/lib/utils'
-
 import { CreateUserParams, UpdateUserParams } from "@/types";
+import { connectToDatabase } from "../database";
+import { handleError } from "../utils";
+
+import User from "../database/models/user.model";
+import Event from "../database/models/event.model";
+import Order from '../database/models/category.model';
+
 
 export async function createUser(user: CreateUserParams) {
   try {
