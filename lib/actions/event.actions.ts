@@ -21,6 +21,9 @@ export const createEvent = async ({
       throw new Error("Organizer not found");
     }
 
+    console.log("Event:", event);
+    console.log("User ID:", userId);
+
     console.log({
       category: event.categoryId,
       organizer: userId
@@ -34,6 +37,7 @@ export const createEvent = async ({
 
     return JSON.parse(JSON.stringify(newEvent));
   } catch (error) {
+    console.error(error);
     handleError(error);
   }
 };

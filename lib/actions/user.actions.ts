@@ -9,7 +9,6 @@ import User from "../database/models/user.model";
 import Event from "../database/models/event.model";
 import Order from '../database/models/category.model';
 
-
 export async function createUser(user: CreateUserParams) {
   try {
     await connectToDatabase()
